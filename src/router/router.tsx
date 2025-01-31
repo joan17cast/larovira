@@ -4,8 +4,11 @@ import {
 	createRouter,
 } from "@tanstack/react-router";
 import { LandingPage, GalleryPage, PricingPage, RoutesPage } from "@/pages";
+import Layout from "@/components/layout/layout"; // Adjust the import path as necessary
 
-const rootRoute = createRootRoute();
+const rootRoute = createRootRoute({
+	component: Layout,
+});
 
 const landingRoute = createRoute({
 	getParentRoute: () => rootRoute,
@@ -37,4 +40,5 @@ const routeTree = rootRoute.addChildren([
 	pricingRoute,
 	routesRoute,
 ]);
+
 export const router = createRouter({ routeTree });
